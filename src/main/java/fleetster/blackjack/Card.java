@@ -19,6 +19,12 @@ public class Card {
         this.rank = rank;
     }
 
+    public Card(String suit, String rank){
+        this.suit = Suit.valueOf(suit.toUpperCase());
+        this.rank = Rank.valueOf(rank.toUpperCase());
+
+    }
+
     public Suit getSuit() {
         return suit;
     }
@@ -44,20 +50,25 @@ public class Card {
         return this.rank.getValue();
     }
 
+    @Override
+    public String toString() {
+        return this.rank.toString() + " " + this.suit.toString();
+    }
 
     public static void main(String[] args) {
 //        TODO Needs method to draw random cards and loop for hit/stay
 
         Card card1 = new Card(Suit.SPADES, Rank.NINE);
         Card card2 = new Card(Suit.HEARTS, Rank.THREE);
-        Card card3 = new Card(Suit.SPADES, Rank.ACE);
-        handValue = card1.getValue() + card2.getValue();
-        System.out.printf("Your current hand totals %d", handValue);
-        handValue = handValue + card3.getValue();
-        System.out.printf("Your current hand totals %d", handValue);
+        Card card3 = new Card("spades", "ace");
 
-        System.out.println("Your hand is: " + card1.getRank() + " of " + card1.getSuit() + " , " + card2.getRank() +
-                " of " + card2.getSuit()  + " and " + card3.getRank() + " of " + card3.getSuit());
-        System.out.printf("Your current hand totals %d", handValue);
+
+        handValue = card1.getValue() + card2.getValue();
+        System.out.printf("Your current hand totals %d%n", handValue );
+        System.out.println("You have now drawn card: " + card3);
+        handValue = handValue + card3.getValue();
+        System.out.printf("Your current hand totals %d%n", handValue);
+
+        System.out.println("Your cards are: " + card1 + ", " + card2  + ", " + "and " + card3);
     }
 }
