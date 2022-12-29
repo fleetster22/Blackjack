@@ -1,6 +1,7 @@
 package fleetster.blackjack;
 
 public enum Rank {
+//    TODO add toString to show THREE as 3, etc
 
     ACE(1),
     TWO(2),
